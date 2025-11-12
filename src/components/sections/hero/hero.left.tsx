@@ -1,5 +1,5 @@
 import Typewriter from "typewriter-effect";
-import SocialMedia from "components/sections/social.media";
+import SocialMedia from "@/components/sections/social.media";
 import { useTranslation } from "react-i18next";
 import './hero.scss';
 import ResizeButton from "../resize.button";
@@ -7,9 +7,23 @@ import { APP_DATA } from 'helpers/data';
 import { MdFileDownload } from "react-icons/md";
 import { AiFillFire } from "react-icons/ai";
 
-const HeroLeft = () => {
+interface IProps {
+    scrollToExperienceSection: () => void
+}
+
+
+const HeroLeft = (props: IProps) => {
 
     const { t } = useTranslation();
+
+
+    const myCVUrl = 'https://drive.google.com/file/d/1oCa9z36oCBlQad_CfkEMU83OW839V-WH/view?usp=sharing';
+    const handleDownloadCV = () => {
+        const newWindow = window.open(myCVUrl, '_blank');
+        if (newWindow) newWindow.opener = null;
+    }
+
+
 
     return (
         <div className='hero-left'>
@@ -56,10 +70,12 @@ const HeroLeft = () => {
                         border: "1px solid var(--border-hero-right)",
                         color: "var(--text-white-1)"
                     }}
+                    onClick={props.scrollToExperienceSection}
                 />
                 <ResizeButton
                     btnText={t("heroSection.cv")}
                     btnIcons={<MdFileDownload />}
+                    onClick={handleDownloadCV}
                 />
 
             </div>

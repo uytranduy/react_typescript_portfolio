@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import AnimationLottie from 'share/animation-lottie';
+import AnimationLottie from '@/components/share/animation-lottie';
 import experienceJSON from 'assets/lottie/code.json'
 import { EXPERIENCES } from 'helpers/data'
 import GlowCard from "share/glow-card";
@@ -11,7 +11,6 @@ import { useTranslation } from "react-i18next";
 const Experience = () => {
     const { theme } = useCurrentApp();
     const { t, i18n } = useTranslation();
-
     return (
         <Row className="mb-5">
             <Col xs={12} className="my-3 my-md-5">
